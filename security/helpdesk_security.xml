@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <!-- Grupo para usuarios del Helpdesk -->
     <record id="group_helpdesk_user" model="res.groups">
-        <field name="name">Usuario de Helpdesk</field>
-        <field name="category_id" ref="base.module_category_hidden"/>
+        <field name="name">Usuario</field>
+        <field name="category_id" ref="base.module_category_services"/>
+    </record>
+
+    <!-- Grupo para técnicos del Helpdesk -->
+    <record id="group_helpdesk_technician" model="res.groups">
+        <field name="name">Técnico</field>
+        <field name="category_id" ref="base.module_category_services"/>
     </record>
 
     <!-- Grupo para gerentes del Helpdesk -->
     <record id="group_helpdesk_manager" model="res.groups">
-        <field name="name">Gerente de Helpdesk</field>
-        <field name="category_id" ref="base.module_category_hidden"/>
+        <field name="name">Gerente</field>
+        <field name="category_id" ref="base.module_category_services"/>
     </record>
 </odoo>
