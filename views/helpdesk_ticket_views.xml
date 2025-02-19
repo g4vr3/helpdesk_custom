@@ -56,7 +56,7 @@
         <field name="model">helpdesk.ticket</field>
         <field name="type">kanban</field>
         <field name="arch" type="xml">
-            <kanban>
+            <kanban default_group_by="state"> <!-- Agrupar por estado -->
                 <field name="name"/>
                 <field name="state"/>
                 <field name="priority"/>
