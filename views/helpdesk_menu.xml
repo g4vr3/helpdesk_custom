@@ -1,0 +1,18 @@
+<odoo>
+    <!-- Menú principal de Helpdesk -->
+    <menuitem id="helpdesk_menu" name="Helpdesk" sequence="10"/>
+
+    <!-- Menú secundario para la gestión de Tickets -->
+    <menuitem id="helpdesk_ticket_menu" name="Tickets" parent="helpdesk_menu" sequence="20"/>
+
+    <!-- Acción para mostrar la lista y formulario de tickets -->
+    <record id="helpdesk_ticket_action" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Submenú que enlaza la acción de tickets dentro del menú Tickets -->
+    <menuitem id="helpdesk_ticket_list_menu" name="Ver Tickets"
+              parent="helpdesk_ticket_menu" action="helpdesk_ticket_action"/>
+</odoo>
