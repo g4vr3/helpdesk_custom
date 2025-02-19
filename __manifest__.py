@@ -12,7 +12,7 @@
         'views/helpdesk_category_views.xml',
         'views/helpdesk_message_views.xml',
         'views/helpdesk_menu.xml',
-        'data/helpdesk_category_data.xml',
+        'data/helpdesk_demo_data.xml',
     ],
     'demo': [
         'demo/demo.xml',
