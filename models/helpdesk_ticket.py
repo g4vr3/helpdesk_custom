@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
 class HelpdeskTicket(models.Model):
     _name = 'helpdesk.ticket'
@@ -13,7 +13,7 @@ class HelpdeskTicket(models.Model):
         ('resolved', 'Resuelto'),
         ('closed', 'Cerrado')
     ], string='Estado', default='new')
-    create_date = fields.Datetime(string='Fecha de Creación', default=fields.Datetime.now, readonly=True) #fecha de creacion automática
+    create_date = fields.Datetime(string='Fecha de Creación', default=fields.Datetime.now, readonly=True)
     deadline = fields.Datetime(string='Fecha Límite de Resolución')
     assigned_user_id = fields.Many2one('res.users', string='Técnico Asignado')
     priority = fields.Selection([

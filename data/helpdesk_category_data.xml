@@ -1,0 +1,12 @@
+<!-- Categorías de ejemplo de tickets de Helpdesk -->
+<odoo>
+    <record id="helpdesk_category_technical" model="helpdesk.category">
+        <field name="name">Problemas Técnicos</field>
+        <field name="description">Categoría para tickets relacionados con problemas técnicos.</field>
+    </record>
+    
+    <record id="helpdesk_category_billing" model="helpdesk.category">
+        <field name="name">Facturación</field>
+        <field name="description">Categoría para tickets relacionados con problemas de facturación.</field>
+    </record>
+</odoo>

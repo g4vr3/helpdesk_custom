@@ -1,9 +1,0 @@
-<!-- Categorías de ejemplo de tickets de Helpdesk -->
-<odoo>
-    <record id="helpdesk_ticket_category_technical" model="helpdesk.ticket.category">
-        <field name="name">Técnico</field>
-    </record>
-    <record id="helpdesk_ticket_category_billing" model="helpdesk.ticket.category">
-        <field name="name">Facturación</field>
-    </record>
-</odoo>

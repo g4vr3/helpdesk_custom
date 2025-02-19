@@ -9,8 +9,10 @@
         'security/helpdesk_security.xml',
         'security/ir.model.access.csv',
         'views/helpdesk_ticket_views.xml',
+        'views/helpdesk_category_views.xml',
+        'views/helpdesk_message_views.xml',
         'views/helpdesk_menu.xml',
-        'data/helpdesk_ticket_category_data.xml',
+        'data/helpdesk_category_data.xml',
     ],
     'demo': [
         'demo/demo.xml',

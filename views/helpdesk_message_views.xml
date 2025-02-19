@@ -1,11 +1,12 @@
 <odoo>
-    <!-- Vista de Lista -->
+    <!-- Vista de Lista para Mensajes -->
     <record id="view_helpdesk_message_list" model="ir.ui.view">
         <field name="name">helpdesk.message.list</field>
         <field name="model">helpdesk.message</field>
         <field name="type">list</field>
         <field name="arch" type="xml">
             <list string="Mensajes">
+                <field name="ticket_id"/>
                 <field name="create_date"/>
                 <field name="user_id"/>
                 <field name="message"/>
@@ -13,7 +14,7 @@
         </field>
     </record>
 
-    <!-- Vista de Formulario -->
+    <!-- Vista de Formulario para Mensajes -->
     <record id="view_helpdesk_message_form" model="ir.ui.view">
         <field name="name">helpdesk.message.form</field>
         <field name="model">helpdesk.message</field>
