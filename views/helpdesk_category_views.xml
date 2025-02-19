@@ -1,0 +1,31 @@
+<odoo>
+    <!-- Vista de Lista -->
+    <record id="view_helpdesk_category_list" model="ir.ui.view">
+        <field name="name">helpdesk.category.list</field>
+        <field name="model">helpdesk.category</field>
+        <field name="type">list</field>
+        <field name="arch" type="xml">
+            <list string="Categorías">
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista de Formulario -->
+    <record id="view_helpdesk_category_form" model="ir.ui.view">
+        <field name="name">helpdesk.category.form</field>
+        <field name="model">helpdesk.category</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Categoría de Ticket">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
