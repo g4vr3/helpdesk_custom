@@ -1,18 +1,40 @@
 <odoo>
     <!-- Menú principal de Helpdesk -->
-    <menuitem id="helpdesk_menu" name="Helpdesk" sequence="10"/>
+    <menuitem id="menu_helpdesk_root" name="Helpdesk" sequence="10"/>
 
-    <!-- Menú secundario para la gestión de Tickets -->
-    <menuitem id="helpdesk_ticket_menu" name="Tickets" parent="helpdesk_menu" sequence="20"/>
+    <!-- Submenú para Tickets -->
+    <menuitem id="menu_helpdesk_tickets" name="Tickets" parent="menu_helpdesk_root" sequence="10"/>
 
-    <!-- Acción para mostrar la lista y formulario de tickets -->
-    <record id="helpdesk_ticket_action" model="ir.actions.act_window">
+    <!-- Acción para la vista de lista de Tickets -->
+    <record id="action_helpdesk_ticket_list" model="ir.actions.act_window">
         <field name="name">Tickets</field>
         <field name="res_model">helpdesk.ticket</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,kanban,calendar</field>
+        <field name="view_id" ref="view_helpdesk_ticket_list"/>
     </record>
+    <menuitem id="menu_helpdesk_ticket_list" name="Tickets" parent="menu_helpdesk_tickets" action="action_helpdesk_ticket_list" sequence="10"/>
 
-    <!-- Submenú que enlaza la acción de tickets dentro del menú Tickets -->
-    <menuitem id="helpdesk_ticket_list_menu" name="Ver Tickets"
-              parent="helpdesk_ticket_menu" action="helpdesk_ticket_action"/>
+    <!-- Submenú para Categorías -->
+    <menuitem id="menu_helpdesk_categories" name="Categorías" parent="menu_helpdesk_root" sequence="20"/>
+
+    <!-- Acción para la vista de lista de Categorías -->
+    <record id="action_helpdesk_category_list" model="ir.actions.act_window">
+        <field name="name">Categorías</field>
+        <field name="res_model">helpdesk.category</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_helpdesk_category_list"/>
+    </record>
+    <menuitem id="menu_helpdesk_category_list" name="Categorías" parent="menu_helpdesk_categories" action="action_helpdesk_category_list" sequence="10"/>
+
+    <!-- Submenú para Mensajes -->
+    <menuitem id="menu_helpdesk_messages" name="Mensajes" parent="menu_helpdesk_root" sequence="30"/>
+
+    <!-- Acción para la vista de lista de Mensajes -->
+    <record id="action_helpdesk_message_list" model="ir.actions.act_window">
+        <field name="name">Mensajes</field>
+        <field name="res_model">helpdesk.message</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_helpdesk_message_list"/>
+    </record>
+    <menuitem id="menu_helpdesk_message_list" name="Mensajes" parent="menu_helpdesk_messages" action="action_helpdesk_message_list" sequence="10"/>
 </odoo>
