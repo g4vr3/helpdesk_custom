@@ -13,6 +13,9 @@
         'views/helpdesk_message_views.xml',
         'views/helpdesk_menu.xml',
         'data/helpdesk_demo_data.xml',
+        'data/helpdesk_server_actions.xml',
+        'data/helpdesk_mail_templates.xml',
+    
     ],
     'demo': [
         'demo/demo.xml',
@@ -20,4 +23,5 @@
     'installable': True,
     'application': True,
     'auto_install': False,
+    'images': ['static/description/icon.png'],
 }
