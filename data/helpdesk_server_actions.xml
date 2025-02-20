@@ -1,0 +1,53 @@
+<odoo>
+    <!-- Acción automatizada para enviar notificación al cliente cuando el ticket se resuelve -->
+    <record id="action_notify_customer_resolved" model="ir.actions.server">
+        <field name="name">Notificar al Cliente - Ticket Resuelto</field>
+        <field name="model_id" ref="model_helpdesk_ticket" />
+        <field name="state">code</field>
+        <field name="code">
+            <![CDATA[
+record.notify_customer_ticket_resolved()
+            ]]>
+        </field>
+    </record>
+
+    <!-- Acción automatizada para enviar notificación al técnico cuando se le asigna un ticket -->
+    <record id="action_notify_technician_assigned" model="ir.actions.server">
+        <field name="name">Notificar al Técnico - Ticket Asignado</field>
+        <field name="model_id" ref="model_helpdesk_ticket" />
+        <field name="state">code</field>
+        <field name="code">
+            <![CDATA[
+record.notify_technician_ticket_assigned()
+            ]]>
+        </field>
+    </record>
+
+    <!-- Acción automatizada para enviar recordatorio si un ticket no ha sido atendido en 48 horas -->
+    <record id="action_remind_unattended_tickets" model="ir.actions.server">
+        <field name="name">Recordatorio - Tickets No Atendidos</field>
+        <field name="model_id" ref="model_helpdesk_ticket"/>
+        <field name="state">code</field>
+        <field name="code">
+            <![CDATA[
+env['helpdesk.ticket.reminder'].send_unattended_ticket_reminder()
+            ]]>
+        </field>
+    </record>
+
+    <!-- Cron job para ejecutar la acción cada día -->
+    <record id="cron_remind_unattended_tickets" model="ir.cron">
+        <field name="name">Recordatorio - Tickets No Atendidos</field>
+        <field name="model_id" ref="model_helpdesk_ticket"/>
+        <field name="state">code</field>
+        <field name="code">
+            <![CDATA[
+env.ref('helpdesk_custom.action_remind_unattended_tickets').run()
+            ]]>
+        </field>
+        <field name="interval_number">1</field>  <!-- Ejecuta cada 1 día -->
+        <field name="interval_type">days</field>
+        <field name="active" eval="True"/>
+        <field name="nextcall" eval="'2025-02-21 10:00:00'"/>
+    </record>
+</odoo>

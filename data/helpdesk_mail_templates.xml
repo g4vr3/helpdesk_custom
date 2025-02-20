@@ -1,0 +1,57 @@
+<odoo>
+    <!-- Plantilla de correo para notificación de ticket resuelto -->
+    <record id="mail_template_ticket_resolved" model="mail.template">
+        <field name="name">Notificación - Ticket Resuelto</field>
+        <field name="model_id" ref="model_helpdesk_ticket"/>
+        <field name="subject">Su ticket ha sido resuelto</field>
+        <field name="email_from">${object.assigned_user_id.email or 'noreply@example.com'}</field>
+        <field name="email_to">${object.customer_id.email}</field>
+        <field name="body_html">
+            <![CDATA[
+                <p>Hola ${object.customer_id.name},</p>
+                <p>Tu ticket <strong>${object.name}</strong> ha sido resuelto.</p>
+                <p>Descripción: ${object.description}</p>
+                <p>Gracias,</p>
+                <p>El equipo de soporte</p>
+            ]]>
+        </field>
+    </record>
+
+    <!-- Plantilla de correo para recordatorio de ticket no atendido -->
+    <record id="mail_template_ticket_reminder" model="mail.template">
+        <field name="name">Recordatorio - Ticket No Atendido</field>
+        <field name="model_id" ref="model_helpdesk_ticket"/>
+        <field name="subject">Recordatorio: Ticket No Atendido</field>
+        <field name="email_from">${object.assigned_user_id.email or 'noreply@example.com'}</field>
+        <field name="email_to">${object.assigned_user_id.email}</field>
+        <field name="body_html">
+            <![CDATA[
+                <p>Hola ${object.assigned_user_id.name},</p>
+                <p>El ticket <strong>${object.name}</strong> no ha sido atendido en las últimas 48 horas.</p>
+                <p>Descripción: ${object.description}</p>
+                <p>Por favor, revise el ticket lo antes posible.</p>
+                <p>Gracias,</p>
+                <p>El equipo de soporte</p>
+            ]]>
+        </field>
+    </record>
+
+    <!-- Plantilla de correo para notificación de ticket asignado -->
+    <record id="mail_template_ticket_assigned" model="mail.template">
+        <field name="name">Notificación - Ticket Asignado</field>
+        <field name="model_id" ref="model_helpdesk_ticket"/>
+        <field name="subject">Se le ha asignado un nuevo ticket</field>
+        <field name="email_from">${object.customer_id.email or 'noreply@example.com'}</field>
+        <field name="email_to">${object.assigned_user_id.email}</field>
+        <field name="body_html">
+            <![CDATA[
+                <p>Hola ${object.assigned_user_id.name},</p>
+                <p>Se le ha asignado un nuevo ticket <strong>${object.name}</strong>.</p>
+                <p>Descripción: ${object.description}</p>
+                <p>Por favor, revise el ticket lo antes posible.</p>
+                <p>Gracias,</p>
+                <p>El equipo de soporte</p>
+            ]]>
+        </field>
+    </record>
+</odoo>
